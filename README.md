@@ -38,7 +38,7 @@ Personal configuration files for Hyprland (uwsm-managed), Waybar, GTK, and relat
 
 ```bash
 # Clone the repo
-git clone <repo-url> ~/dotk
+git clone https://github.com/kallsssss/dotk.git
 
 # Stow or symlink each config directory
 # Example for stow (recommended):
