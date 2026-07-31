@@ -1,0 +1,224 @@
+/* ══════════════════════════════════════════════════════════════
+   Nord Rofi Theme
+   ── Polar Night:  #2E3440  #3B4252  #434C5E  #4C566A
+   ── Snow Storm:   #D8DEE9  #E5E9F0  #ECEFF4
+   ── Frost:        #8FBCBB  #88C0D0  #81A1C1  #5E81AC
+   ── Aurora:       #BF616A  #D08770  #EBCB8B  #A3BE8C  #B48EAD
+   ══════════════════════════════════════════════════════════════ */
+
+* {
+    font:             "JetBrainsMono Nerd Font 12";
+    background-color: transparent;
+    text-color:       #D8DEE9;
+    border:           0;
+    line-style:       none;
+
+    /* Nord vars */
+    nord0:  #2E3440;
+    nord1:  #3B4252;
+    nord2:  #434C5E;
+    nord3:  #4C566A;
+    nord4:  #D8DEE9;
+    nord6:  #ECEFF4;
+    nord8:  #88C0D0;
+    nord9:  #81A1C1;
+    nord10: #5E81AC;
+    nord11: #BF616A;
+    nord14: #A3BE8C;
+    nord15: #B48EAD;
+}
+
+/* ── Window ─────────────────────────────────────────────────── */
+window {
+    width:            780px;
+    height:           50%;
+    background-color: #2E3440;
+    border:           1px;
+    border-color:     #4C566A;
+    border-radius:    10px;
+    location:         center;
+    anchor:           center;
+    orientation:      horizontal;
+    spacing:          0;
+    padding:          0;
+}
+
+sidebar {
+    border: 0;
+}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+mainbox {
+    orientation:      horizontal;
+    children:         [ "contentbox" ];
+    spacing:          0;
+    padding:          0;
+}
+
+/* Left panel — art 
+imagebox {
+    background-image:  url("~/.config/rofi/image.jpg");
+    background-repeat: false;
+    background-color:  #3B4252;
+    width:             260px;
+    border-radius:     10px 0 0 10px;
+    expand:            true;
+}
+*/
+
+/* Right panel */
+contentbox {
+    orientation:      vertical;
+    children:         [ "searchbox", "listview", "mode-switcher"];
+    spacing:          0;
+    padding:          0;
+    expand:           true;
+}
+
+/* ── Search bar ─────────────────────────────────────────────── */
+searchbox {
+    orientation:      horizontal;
+    children:         [ "entry" ];
+    background-color: #3B4252;
+    border-bottom-radius:    10px;
+    border-color:     #3B4252;
+    padding:          8px 10px;
+    spacing:          8px;
+    expand:           false;
+}
+/*
+prompt {
+    enabled:          true;
+    background-color: transparent;
+    text-color:       #88C0D0;
+    expand:           false;
+    vertical-align:   0.5;
+}
+*/
+entry {
+    background-color: transparent;
+    text-color:       #ECEFF4;
+    placeholder:      "Search…";
+    placeholder-color: #4C566A;
+    cursor:           text;
+    cursor-color:     #88C0D0;
+    expand:           true;
+    vertical-align:   0.5;
+}
+
+/* ── List ───────────────────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            0;
+    padding:          8px 6px;
+    spacing:          2px;
+    expand:           true;
+    scrollbar:        true;
+    fixed-height:     true;
+    border:           0;
+}
+
+/* ── Elements ───────────────────────────────────────────────── */
+element {
+    orientation:      horizontal;
+    background-color: transparent;
+    text-color:       #D8DEE9;
+    padding:          6px 8px;
+    border-radius:    6px;
+    spacing:          8px;
+    children:         [ element-icon, element-text ];
+}
+
+element-icon {
+    background-color: transparent;
+    size:             24px;
+    vertical-align:   0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    expand:           true;
+}
+
+/* Normal items */
+element normal.normal {
+    background-color: transparent;
+    text-color:       #D8DEE9;
+}
+element normal.active {
+    background-color: transparent;
+    text-color:       #88C0D0;
+}
+element normal.urgent {
+    background-color: transparent;
+    text-color:       #BF616A;
+}
+
+/* Hovered / selected */
+element selected.normal {
+    background-color: #3B4252;
+    text-color:       #ECEFF4;
+    border:           0 0 0 2px;
+    border-color:     #88C0D0;
+    border-radius:    0 6px 6px 0;
+}
+element selected.active {
+    background-color: #3B4252;
+    text-color:       #88C0D0;
+}
+element selected.urgent {
+    background-color: rgba(191,97,106,0.18);
+    text-color:       #BF616A;
+}
+
+/* Alternating rows */
+element alternate.normal {
+    background-color: rgba(67,76,94,0.18);
+    text-color:       #D8DEE9;
+    border-radius:    6px;
+}
+element alternate.active {
+    background-color: rgba(67,76,94,0.18);
+    text-color:       #88C0D0;
+}
+element alternate.urgent {
+    background-color: rgba(67,76,94,0.18);
+    text-color:       #BF616A;
+}
+
+/* ── Mode switcher (drun / run / window) ────────────────────── */
+mode-switcher {
+    background-color: #3B4252;
+    border:           1px 0 0 0;
+    border-color:     #434C5E;
+    border-radius:    0 0 10px 0;
+    spacing:          0;
+    padding:          6px 8px;
+    expand:           false;
+}
+
+button {
+    background-color: transparent;
+    text-color:       #4C566A;
+    padding:          4px 12px;
+    border-radius:    4px;
+    cursor:           pointer;
+}
+
+button selected {
+    background-color: #434C5E;
+    text-color:       #88C0D0;
+}
+
+/* ── Scrollbar (hidden, but styled if enabled) ──────────────── */
+scrollbar {
+    background-color: transparent;
+    handle-color:     #4C566A;
+    handle-width:     4px;
+    border-radius:    2px;
+    width:            6px;
+    padding:          2px;
+}

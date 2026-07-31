@@ -1,0 +1,71 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "$HOME/.config/fastfetch/ASCII.txt",
+    "color": {
+      "1": "#88C0D0"
+    },
+    "padding": {
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+        "break",
+        {
+            "type": "os",
+            "key": "  ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": "├󰌽 ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "packages",
+            "key": "├󰏗 ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "wm",
+            "key": "├󱂬 ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "cpu",
+            "key": "├󰻠 ",
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": "├󰍹 ",
+            "keyColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": "├󰑭 ",
+            "keyColor": "green"
+        },
+        {
+          "type": "disk",
+          "key": "├/ ",
+          "keyColor": "green",
+          "folders": "/"
+        },
+        {
+          "type": "disk",
+          "key": "└󰋜 ",
+          "keyColor": "green",
+          "folders": "/home"
+        },
+        {
+            "type": "de",
+            "key": "󰧨  DE",
+            "keyColor": "blue"
+        }
+    ]
+}

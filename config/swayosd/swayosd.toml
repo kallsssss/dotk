@@ -1,0 +1,17 @@
+# ~/.config/swayosd/config.toml
+
+# Points to the Nord style.css shipped alongside this file
+style = "~/.config/swayosd/style.css"
+
+# Vertical position (0.0 = top, 0.5 = center, 1.0 = bottom)
+top_margin = 0.9
+
+# Volume ceiling / brightness floor
+max_volume = 120
+min_brightness = 5
+
+show_percentage = true
+
+playerctl_format = "{artist} - {title}"
+
+keyboard_backlight = true

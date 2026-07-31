@@ -1,0 +1,278 @@
+/*
+   Nord palette
+*/
+@define-color polar_night0 #2E3440;
+@define-color polar_night1 #3B4252;
+@define-color polar_night2 #434C5E;
+@define-color polar_night3 #4C566A;
+
+@define-color snow_storm0 #D8DEE9;
+@define-color snow_storm1 #E5E9F0;
+@define-color snow_storm2 #ECEFF4;
+
+@define-color frost0 #8FBCBB;
+@define-color frost1 #88C0D0;
+@define-color frost2 #81A1C1;
+@define-color frost3 #5E81AC;
+
+@define-color aurora_red #BF616A;
+@define-color aurora_orange #D08770;
+@define-color aurora_yellow #EBCB8B;
+@define-color aurora_green #A3BE8C;
+@define-color aurora_purple #B48EAD;
+
+/* 
+   Base
+*/
+* {
+  border: none;
+  border-radius: 10px;
+  font-family: "FiraCode Nerd Font";
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 0;
+  color: @snow_storm0;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+/* 
+   Segmented pill groups 
+*/
+.modules-left,
+.modules-right {
+  background-color: alpha(@polar_night0, 0.55);
+}
+
+/* 
+   Shared interactive-module behavior
+*/
+
+#clock,
+#mpris,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-steam,
+#custom-server,
+#custom-power {
+  padding: 0 7px;
+  margin: 0 0;
+  border-radius: 10px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+#clock:hover,
+#mpris:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#battery:hover,
+#power-profiles-daemon:hover,
+#idle_inhibitor:hover,
+#custom-steam:hover,
+#custom-server:hover {
+  background-color: alpha(@frost1, 0.18);
+  color: @snow_storm2;
+}
+
+/* Left Modules */
+
+#clock {
+  color: @frost1;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0 9px 0 2px;
+  margin: 0 0 0 0px;
+}
+
+#power-profiles-daemon {
+  color: @frost1;
+  font-size: 16px;
+  margin: 0 0;
+}
+
+#power-profiles-daemon.performance {
+  color: @aurora_red;
+}
+
+#power-profiles-daemon.balanced {
+  color: @aurora_green;
+  padding: 0 10px 1px 7px;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @frost1;
+  padding: 0 7px 0.5px 7px;
+}
+
+#custom-server {
+  color: @frost0;
+  font-size: 15px;
+  padding: 0 5px 0 8px;
+  margin: 0 0;
+}
+
+#custom-server.online {
+  color: @frost1;
+}
+
+#custom-server.offline {
+  color: @aurora_red;
+}
+
+#idle_inhibitor {
+  font-size: 16px;
+  padding: 0 12px 0 6.5px;
+  margin: 0 0;
+}
+
+#idle_inhibitor.deactivated {
+  color: @polar_night3;
+}
+
+#idle_inhibitor.activated {
+  color: @frost2;
+  font-weight: 700;
+}
+
+#custom-steam {
+  color: @frost2;
+  font-size: 15px;
+  padding: 0 11px 0.1px 7px;
+  margin: 0 0;
+}
+
+/* Center Modules */
+
+#workspaces {
+  background: transparent;
+  margin: 0 2px;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 0 2px;
+  min-width: 20px;
+  color: @polar_night3;
+  background: transparent;
+  border-radius: 40px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+#workspaces button:hover {
+  background-color: alpha(@frost2, 0.2);
+  color: @frost2;
+}
+
+#workspaces button.active {
+  color: @polar_night0;
+  background-color: alpha(@polar_night0, 0.7);
+  font-weight: 700;
+}
+
+#workspaces button.urgent {
+  color: @snow_storm2;
+  background-color: @aurora_red;
+}
+
+/* Right Modules */
+
+#mpris {
+  color: @frost0;
+  padding: 0 7px 0 9px;
+}
+
+#mpris.playing {
+  color: @frost0;
+  font-weight: 700;
+}
+
+#mpris.paused {
+  color: @polar_night3;
+}
+
+#mpris.stopped {
+  color: @polar_night3;
+  opacity: 0.6;
+}
+
+#pulseaudio {
+  color: @frost0;
+  font-size: 16px;
+}
+
+#pulseaudio.muted {
+  color: @polar_night3;
+}
+
+#battery {
+  color: @aurora_green;
+  font-size: 14.5px;
+  padding: 0 10px 0 7px;
+  background-color: transparent;
+}
+
+#battery.charging {
+  color: @aurora_green;
+}
+
+#battery.warning {
+  color: @aurora_yellow;
+}
+
+#battery.critical {
+  color: @aurora_red;
+  animation: blink 1s step-start infinite;
+}
+
+#bluetooth {
+  color: @frost0;
+  font-size: 16px;
+  padding: 0 10px 0 9px;
+}
+
+#bluetooth.connected {
+  color: @aurora_green;
+}
+
+#network {
+  color: @aurora_green;
+  padding: 0 14px 0 7px;
+}
+
+#network.disconnected {
+  color: @aurora_red;
+}
+
+#network.linked {
+  color: @aurora_yellow;
+}
+
+#custom-power {
+  color: @aurora_red;
+  padding: 0 14px 0 10px;
+  margin: 0 1px 0 0px;
+  border-radius: 10px;
+}
+
+#custom-power:hover {
+  background-color: alpha(@aurora_red, 0.22);
+  color: @snow_storm2;
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}

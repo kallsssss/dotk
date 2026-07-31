@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if pgrep -x steam >/dev/null; then
+  echo '{"text":"󰓓","tooltip":"Steam is running"}'
+else
+  echo '{"text":"","tooltip":"Steam is not running"}'
+fi

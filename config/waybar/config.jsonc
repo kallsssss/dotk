@@ -1,0 +1,178 @@
+{
+  "height": 24,
+  "margin-top": 2,
+  "margin-left": 2,
+  "margin-right": 2,
+  "margin-bottom": 0,
+  "spacing": 0,
+  "layer": "top",
+  "exclusive": true,
+  "modules-left": [
+    "clock",
+    "power-profiles-daemon",
+    "idle_inhibitor",
+    "custom/steam"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "mpris",
+    "pulseaudio",
+    "battery",
+    "bluetooth",
+    "network",
+    "custom/power"
+  ],
+  // Module Configuration
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<b>{:%A, %d %B %Y}</b>"
+  },
+  "network": {
+    "interface":    "wlan0",
+    "format-wifi":  "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-disconnected":" 󰤭 off",
+    "format-disabled":      "󰀝",
+    "tooltip-format-wifi":  "{essid}  {signalStrength}%  {signaldBm} dBm\n{icon}",
+    "tooltip":              true,
+    "interval":             10,
+    "on-click":             "plasmawindowed org.kde.plasma.networkmanagement"
+  },
+  "bluetooth": {
+    "format":                             "󰂯",
+    "format-disabled":                    "󰂲",
+    "format-on":                          "󰂱",
+    "tooltip-format":                     "{device_alias}",
+    "tooltip-format-connected":           "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click":                           "blueman-manager"
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning":  25,
+      "critical": 10
+    },
+    "format":          "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-plugged":  "󰁹",
+    "format-icons": {
+      "default":  [
+        "󰂎 ",
+        "󰁻 ",
+        "󰁽 ",
+        "󰁿 ",
+        "󰂁 ",
+        "󰁹 "
+      ],
+      "charging": [
+        "󰂎 󱐋󱐋󱐋󱐋󱐋",
+        "󰁻 󱐋󱐋󱐋󱐋",
+        "󰁽 󱐋󱐋󱐋",
+        "󰁿 󱐋󱐋",
+        "󰂁 󱐋",
+        "󰁹 "
+      ]
+    },
+    "tooltip-format": "{timeTo}\n{power:.1f} W\n{capacity}%",
+    "tooltip": true
+  },
+  "power-profiles-daemon": {
+    "format":         "{icon}",
+    "tooltip-format": "{profile}",
+    "tooltip":        true,
+    "format-icons": {
+      "default":     "󰾅",
+      "performance": "󱐋",
+      "balanced":    "󰾅",
+      "power-saver": "󱃂"
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰛊"
+    },
+    "tooltip": "Idle inhibitor {status}"
+  },
+  "pulseaudio": {
+    "format":       "{icon}",
+    "format-muted": "󰝟 ",
+    "format-icons": {
+      "default": [
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "scroll-step": 5,
+    "on-click":       "pavucontrol",
+    "on-scroll-up":   "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip-format": "{volume}%"
+  },
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} {title}",
+    "player-icons": {
+      "default": "⏸",
+      "spotify": "",
+      "haruna": "🎵",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "▶"
+    },
+    "max-length": 40,
+	  "ignored-players": ["firefox"]
+  },
+  "custom/steam": {
+    "format":         "{}",
+    "return-type":    "json",
+    "exec":           "~/.config/waybar/scripts/steam_widget",
+    "interval":       3,
+    "on-click":       "steam",
+    "on-click-right": "steam -shutdown",
+    "tooltip":        true
+  },
+  "hyprland/workspaces": {
+    "format":           "{name}",
+    "on-click":         "activate",
+    "sort-by-number":   true,
+    "persistent-only":  true,
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "custom/power": {
+    "format":   "⏻",
+    "tooltip":  false,
+    "on-click": "~/.config/power-menu/power_menu.sh"
+  }
+}

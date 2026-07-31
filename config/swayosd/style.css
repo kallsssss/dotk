@@ -1,0 +1,81 @@
+/*  SwayOSD — Nord palette
+   Polar Night:  #2E3440  #3B4252  #434C5E  #4C566A
+   Snow Storm:   #D8DEE9  #E5E9F0  #ECEFF4
+   Frost:        #8FBCBB  #88C0D0  #81A1C1  #5E81AC
+   Aurora:       #BF616A  #D08770  #EBCB8B  #A3BE8C  #B48EAD
+*/
+
+window#osd {
+    border-radius:    0;
+    border:           none;
+    background-color: #2E3440;
+    box-shadow:        0 10px 12px rgba(136, 192, 208, 0.5);
+    font-family:      "FiraCode Nerd Font";
+    font-size:        13px;
+    font-weight:      500;
+}
+
+window#osd #container {
+    margin: 18px 22px;
+}
+
+/*  Icon + label  */
+window#osd image,
+window#osd label {
+    color: #88C0D0;
+}
+
+window#osd image:disabled,
+window#osd progressbar:disabled {
+    opacity: 0.4;
+}
+
+/*  Progress bar / segmented progress (volume, brightness)  */
+window#osd progressbar,
+window#osd segmentedprogress {
+    min-height:       6px;
+    border-radius:    999px;
+    background:       transparent;
+    border:           none;
+}
+
+/*  Track (unfilled portion)  */
+window#osd trough,
+window#osd segment {
+    min-height:       inherit;
+    border-radius:    inherit;
+    border:           none;
+    background-color: #434C5E;
+}
+
+/*  Fill (filled portion) — Frost accent  */
+window#osd progress,
+window#osd segment.active {
+    min-height:       inherit;
+    border-radius:    inherit;
+    border:           none;
+    background-color: #88C0D0;
+}
+
+window#osd segment {
+    margin-left: 8px;
+}
+window#osd segment:first-child {
+    margin-left: 0;
+}
+
+/*  Muted / warning state — Aurora red  */
+window#osd.muted progress,
+window#osd.muted segment.active {
+    background-color: #BF616A;
+}
+window#osd.muted image,
+window#osd.muted label {
+    color: #BF616A;
+}
+
+/*  Caps Lock OSD accent — Aurora yellow  */
+window#osd.caps-lock progress,
+window#osd.caps-lock segment.active {
+    background-color: #EBCB8B;
+}

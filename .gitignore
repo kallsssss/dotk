@@ -1,0 +1,15 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+*.swp
+*.swo
+*~
+.vim/
+.idea/
+.vscode/
+*.code-workspace
+
+# Don't commit the source configs — only copies live here
+# (This repo is a staging area, not the source of truth)
