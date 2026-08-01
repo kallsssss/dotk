@@ -67,17 +67,7 @@ hl.window_rule({
     size = { 230, 235 },
 })
 
--- Minecraft (waywall) — named so it can be toggled at runtime
-hl.window_rule({
-    name = "waywall-rules",
-    match = { class = "waywall" },
-    fullscreen = true,
-    border_size = 0,
-    rounding = 0,
-    workspace = "6",
-})
-
--- Minecraft (normal instances)
+-- Minecraft
 hl.window_rule({
     match = { class = "^Minecraft.*$" },
     workspace = "6 silent",

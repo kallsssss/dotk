@@ -52,20 +52,10 @@
         },
         {
           "type": "disk",
-          "key": "├/ ",
+          "key": "└/ ",
           "keyColor": "green",
           "folders": "/"
         },
-        {
-          "type": "disk",
-          "key": "└󰋜 ",
-          "keyColor": "green",
-          "folders": "/home"
-        },
-        {
-            "type": "de",
-            "key": "󰧨  DE",
-            "keyColor": "blue"
-        }
+        "break"
     ]
 }

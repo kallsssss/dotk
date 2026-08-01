@@ -1,9 +1,9 @@
 /* ══════════════════════════════════════════════════════════════
    Nord Rofi Theme
-   ── Polar Night:  #2E3440  #3B4252  #434C5E  #4C566A
-   ── Snow Storm:   #D8DEE9  #E5E9F0  #ECEFF4
-   ── Frost:        #8FBCBB  #88C0D0  #81A1C1  #5E81AC
-   ── Aurora:       #BF616A  #D08770  #EBCB8B  #A3BE8C  #B48EAD
+    Polar Night:  #2E3440  #3B4252  #434C5E  #4C566A
+    Snow Storm:   #D8DEE9  #E5E9F0  #ECEFF4
+    Frost:        #8FBCBB  #88C0D0  #81A1C1  #5E81AC
+    Aurora:       #BF616A  #D08770  #EBCB8B  #A3BE8C  #B48EAD
    ══════════════════════════════════════════════════════════════ */
 
 * {
@@ -28,7 +28,7 @@
     nord15: #B48EAD;
 }
 
-/* ── Window ─────────────────────────────────────────────────── */
+/*  Window  */
 window {
     width:            780px;
     height:           50%;
@@ -47,7 +47,7 @@ sidebar {
     border: 0;
 }
 
-/* ── Layout ─────────────────────────────────────────────────── */
+/*  Layout  */
 mainbox {
     orientation:      horizontal;
     children:         [ "contentbox" ];
@@ -55,18 +55,7 @@ mainbox {
     padding:          0;
 }
 
-/* Left panel — art 
-imagebox {
-    background-image:  url("~/.config/rofi/image.jpg");
-    background-repeat: false;
-    background-color:  #3B4252;
-    width:             260px;
-    border-radius:     10px 0 0 10px;
-    expand:            true;
-}
-*/
-
-/* Right panel */
+/*  Panel  */
 contentbox {
     orientation:      vertical;
     children:         [ "searchbox", "listview", "mode-switcher"];
@@ -75,7 +64,7 @@ contentbox {
     expand:           true;
 }
 
-/* ── Search bar ─────────────────────────────────────────────── */
+/*  Search bar  */
 searchbox {
     orientation:      horizontal;
     children:         [ "entry" ];
@@ -106,7 +95,7 @@ entry {
     vertical-align:   0.5;
 }
 
-/* ── List ───────────────────────────────────────────────────── */
+/*  List  */
 listview {
     background-color: transparent;
     columns:          1;
@@ -119,7 +108,7 @@ listview {
     border:           0;
 }
 
-/* ── Elements ───────────────────────────────────────────────── */
+/*  Elements  */
 element {
     orientation:      horizontal;
     background-color: transparent;
@@ -189,7 +178,7 @@ element alternate.urgent {
     text-color:       #BF616A;
 }
 
-/* ── Mode switcher (drun / run / window) ────────────────────── */
+/*  Mode switcher (drun / run / window)  */
 mode-switcher {
     background-color: #3B4252;
     border:           1px 0 0 0;
@@ -213,7 +202,7 @@ button selected {
     text-color:       #88C0D0;
 }
 
-/* ── Scrollbar (hidden, but styled if enabled) ──────────────── */
+/*  Scrollbar (hidden, but styled if enabled)  */
 scrollbar {
     background-color: transparent;
     handle-color:     #4C566A;

@@ -1,4 +1,4 @@
---  Look & feel
+--  General
 -- https://wiki.hypr.land/Configuring/Basics/Variables/
 ---@diagnostic disable: undefined-global
 
@@ -60,12 +60,6 @@ hl.config({
     animations = {
         enabled = true,
     },
-})
-
-hl.device({
-    name = "trust-wireless-mouse-1",
-    accel_profile = "flat",
-    sensitivity = 0.0,
 })
 
 --  Bezier curves

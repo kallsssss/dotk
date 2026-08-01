@@ -1,40 +1,34 @@
---  keybind.lua
+--  Keybinds
 --  wiki: https://wiki.hypr.land/Configuring/Basics/Binds/
 ---@diagnostic disable: undefined-global
 
 local Ss = "SUPER"
 
 --  Programs
-local home = os.getenv("HOME")
--- local fastfetch = "alacritty -e bash' --class fastfetch"
-local terminal = "alacritty"
-local ssh = "alacritty -e bash -c '" .. home .. "/.local/bin/sshsol'"
+local home =        os.getenv("HOME")
+local terminal =    "alacritty"
+local fastfetch =   "alacritty -e bash' --class fastfetch"
 local fileManager = "thunar"
-local menu = "rofi -show drun"
-local browser = "firefox"
-local nm = "plasmawindowed org.kde.plasma.networkmanagement"
-local screen = 'grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png'
+local menu =        "rofi -show drun"
+local browser =     "firefox"
+local nm =          "plasmawindowed org.kde.plasma.networkmanagement"
+local screen =      'grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png'
+local audio =       "pavucontrol"
+local bluetooth =   "blueman-manager"
 
 --  Launch
-hl.bind(Ss .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
+hl.bind(Ss .. " + RETURN", hl.dsp.exec_cmd(fastfetch))
 hl.bind(
     Ss .. " + SHIFT + RETURN",
     hl.dsp.exec_cmd(terminal, { float = true, move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" } })
 )
-hl.bind(Ss .. " + 0", function()
-    hl.exec_cmd("loginctl lock-session")
-    hl.timer(function()
-        hl.exec_cmd("systemctl suspend")
-    end, { timeout = 500, type = "oneshot" })
-end)
-hl.bind(Ss .. " + S", hl.dsp.exec_cmd(ssh))
 hl.bind(Ss .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind("ALT    + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(Ss .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(Ss .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(Ss .. " + V", hl.dsp.exec_cmd("pavucontrol"))
+hl.bind(Ss .. " + V", hl.dsp.exec_cmd(audio))
 hl.bind(Ss .. " + N", hl.dsp.exec_cmd(nm))
-hl.bind(Ss .. " + SHIFT + N", hl.dsp.exec_cmd("blueman-manager"))
+hl.bind(Ss .. " + SHIFT + N", hl.dsp.exec_cmd(bluetooth))
 hl.bind(Ss .. " + Y", hl.dsp.exec_cmd(screen))
 
 --  Window management
@@ -104,8 +98,9 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("swayosd-client --playerctl next"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("swayosd-client --playerctl previous"))
 
---  suspend
+-- Suspend
 hl.bind(Ss .. " + 0", function()
+    hl.exec_cmd("loginctl lock-session")
     hl.timer(function()
         hl.exec_cmd("systemctl suspend")
     end, { timeout = 500, type = "oneshot" })

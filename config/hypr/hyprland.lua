@@ -1,3 +1,4 @@
+-- Hyprland Config 
 -- https://wiki.hypr.land/Configuring/Start/
 ---@diagnostic disable: undefined-global
 
@@ -25,14 +26,15 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("sh -c 'XDG_MENU_PREFIX=arch- kbuildsycoca6'")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
-    hl.exec_cmd("systemctl --user enable --now hypridle.service")
+    hl.exec_cmd("systemctl --user start hypridle.service")
     hl.exec_cmd("dunst")
 end)
 
+-- Hide Waybar on 6th workspace
 require("waybar6").setup()
 
 -- Style
-require("style")
+require("general")
 
 -- Window Rules
 require("windowRules")
