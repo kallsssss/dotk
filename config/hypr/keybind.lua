@@ -7,7 +7,7 @@ local Ss = "SUPER"
 --  Programs
 local home =        os.getenv("HOME")
 local terminal =    "alacritty"
-local fastfetch =   "alacritty -e bash --class fastfetch"
+local fastfetch =   "alacritty --class fastfetch -e fish -c 'fastfetch; exec fish'"
 local fileManager = "thunar"
 local menu =        "rofi -show drun"
 local browser =     "firefox"
