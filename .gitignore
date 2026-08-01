@@ -11,8 +11,6 @@ Thumbs.db
 .vscode/
 *.code-workspace
 
-# Local agent notes (not public)
-AGENTS.md
 
 # Don't commit the source configs — only copies live here
 # (This repo is a staging area, not the source of truth)
