@@ -38,21 +38,31 @@ Personal configuration files for Hyprland (uwsm-managed), Waybar, GTK, and relat
 # Clone the repo
 git clone https://github.com/kallsssss/dotk.git ~/dotk
 
-# Backup any existing config files
-# Then copy dotk/config/* into ~/.config/
-cp dotk/config/* ~/.config/
+# Install dependencies, back up existing configs, and install
+cd ~/dotk
+./install.sh
 ```
 
-Or manually for individual configs:
+The installer:
+- Installs all dependencies via pacman (AUR theming packages via paru/yay if present)
+- Asks to back up existing configs to `*.bak-<timestamp>` before copying
+- Auto-detects your monitor and replaces the hardcoded `eDP-1` / `1920x1200@60` values
+  (or pass `--monitor HDMI-A-1 --mode 2560x1440@144` explicitly)
+- Swaps the wifi interface in the waybar config if it differs from `wlan0`
+- Makes all scripts executable
+
+Options: `--skip-deps`, `--no-backup`, `--monitor NAME`, `--mode WxH@R`, `--yes`, `--help`
+
+Or copy manually:
 
 ```bash
-cp ~/dotk/config/hypr ~/.config/hypr
-cp ~/dotk/config/waybar ~/.config/waybar
+cp ~/dotk/config/hypr/* ~/.config/hypr
+cp ~/dotk/config/waybar/* ~/.config/waybar
 # ... etc for each directory in config/
 ```
 
 ## Notes
 
-- Hyprland config uses the `hl` Lua API (not plain `.conf`)
+- Hyprland config uses Lua (not hyprlang)
 - Monitor is `eDP-1` at 1920×1200, keyboard layout `fi`
 - `gtk-4.0/gtk.css` and `gtk-dark.css` are symlinks to the installed Nordic-darker theme
