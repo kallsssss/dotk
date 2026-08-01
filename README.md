@@ -64,5 +64,5 @@ cp ~/dotk/config/waybar/* ~/.config/waybar
 ## Notes
 
 - Hyprland config uses Lua (not hyprlang)
-- Monitor is `eDP-1` at 1920×1200, keyboard layout `fi`
+- Monitor default is `eDP-1` at 1920×1200, keyboard layout is `fi` (modify in config/hypr/general.lua)
 - `gtk-4.0/gtk.css` and `gtk-dark.css` are symlinks to the installed Nordic-darker theme
