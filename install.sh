@@ -191,6 +191,26 @@ apply_monitor() {
     fi
 }
 
+set_fish_shell() {
+    local current
+    current="$(getent passwd "$USER" | cut -d: -f7)"
+    if [[ "$current" == */fish ]]; then
+        ok "default shell already fish"
+        return 0
+    fi
+    if command -v fish >/dev/null 2>&1; then
+        if confirm "Set your default shell to fish?"; then
+            if chsh -s "$(command -v fish)"; then
+                ok "default shell set to fish"
+            else
+                warn "failed to set default shell — do it manually with 'chsh -s $(command -v fish)'"
+            fi
+        fi
+    else
+        warn "fish not found — skipping shell change"
+    fi
+}
+
 apply_interface() {
     local iface
     iface="$(ip -o route get 1.1.1.1 2>/dev/null || true)"
@@ -271,6 +291,7 @@ main() {
 
     apply_monitor "$MONITOR" "$MODE"
     apply_interface
+    set_fish_shell
     make_executable
     postcheck
 
