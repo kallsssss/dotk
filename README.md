@@ -2,6 +2,8 @@
 
 Personal configuration files for Hyprland (uwsm-managed), Waybar, GTK, and related tools on Arch Linux.
 
+![Screenshot](screenshot.png)
+
 ## What's included
 
 | Directory | Description |
